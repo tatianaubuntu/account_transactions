@@ -1,6 +1,7 @@
 import pytest
 
-from code.operations import unpacking_json, sort_operations, correct_date, masking_card, print_of_operations
+from code_account.operations_func import (unpacking_json, sort_operations, correct_date, masking_card,
+                                          print_of_operations)
 
 operations = [
     {
@@ -11,7 +12,7 @@ operations = [
             "amount": "31957.58",
             "currency": {
                 "name": "руб.",
-                "code": "RUB"
+                "code_account": "RUB"
             }
         },
         "description": "Перевод организации",
@@ -26,7 +27,7 @@ operations = [
             "amount": "8221.37",
             "currency": {
                 "name": "USD",
-                "code": "USD"
+                "code_account": "USD"
             }
         },
         "description": "Перевод организации",
@@ -41,7 +42,7 @@ operations = [
             "amount": "9824.07",
             "currency": {
                 "name": "USD",
-                "code": "USD"
+                "code_account": "USD"
             }
         },
         "description": "Перевод организации",
@@ -51,7 +52,7 @@ operations = [
 
 
 def test_unpacking_json():
-    assert unpacking_json("../code/operations.json")[0]["id"] == 441945886
+    assert unpacking_json("code_account/operations.json")[0]["id"] == 441945886
     assert unpacking_json("operation.json") == 'Файл не найден'
 
 
