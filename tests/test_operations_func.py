@@ -52,15 +52,16 @@ operations = [
 
 
 def test_unpacking_json():
-    assert unpacking_json("code_account/operations.json")[0]["id"] == 441945886
+    assert (unpacking_json("/home/tatianat/PycharmProjects/account_transactions/code_account/operations.json")[0]["id"]
+            == 441945886)
     assert unpacking_json("operation.json") == 'Файл не найден'
 
 
 def test_sort_operations():
-    sorted_operations = sort_operations(operations)
-    assert sorted_operations[0]['date'] == "2019-08-26T10:50:58.294041"
+    sorted_operations = sort_operations()
+    assert sorted_operations[0]['date'] == "2019-12-08T22:46:21.935582"
     assert sorted_operations[1]['state'] == 'EXECUTED'
-    assert sorted_operations[0]['id'] == 441945886
+    assert sorted_operations[0]['id'] == 863064926
 
 
 def test_correct_date():

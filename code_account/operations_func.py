@@ -16,10 +16,11 @@ def unpacking_json(json_file):
         return 'Файл не найден'
 
 
-def sort_operations(operations: list) -> list:
+def sort_operations():
     """
     :return: отсортированный список последних 5 операций
     """
+    operations = unpacking_json('/home/tatianat/PycharmProjects/account_transactions/code_account/operations.json')
     operations_list = [operation for operation in operations if operation.get('state') == 'EXECUTED']
     sort_operations_list = sorted(operations_list, key=lambda x: x['date'], reverse=True)
     return sort_operations_list[:5]
