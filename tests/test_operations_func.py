@@ -52,7 +52,7 @@ operations = [
 
 
 def test_unpacking_json():
-    assert (unpacking_json("/home/tatianat/PycharmProjects/account_transactions/code_account/operations.json")[0]["id"]
+    assert (unpacking_json("code_account/operations.json")[0]["id"]
             == 441945886)
     assert unpacking_json("operation.json") == 'Файл не найден'
 
