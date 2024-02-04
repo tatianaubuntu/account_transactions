@@ -1,5 +1,5 @@
 import pytest
-
+from pathlib import Path
 from code_account.operations_func import (unpacking_json, sort_operations, correct_date, masking_card,
                                           print_of_operations)
 
@@ -52,7 +52,8 @@ operations = [
 
 
 def test_unpacking_json():
-    assert (unpacking_json("code_account/operations.json")[0]["id"]
+    file_json = Path.home() / 'PycharmProjects' / 'account_transactions' / 'code_account' / 'operations.json'
+    assert (unpacking_json(file_json)[0]["id"]
             == 441945886)
     assert unpacking_json("operation.json") == 'Файл не найден'
 
