@@ -1,14 +1,15 @@
 import datetime
 import json
-from pathlib import Path
+
+from config import FILE_JSON
 
 
-def unpacking_json(json_file):
+def unpacking_json():
     """
     распаковка json
     """
     try:
-        with open(json_file) as file:
+        with open(FILE_JSON) as file:
             raw_json = file.read()
             operations = json.loads(raw_json)
             return operations
@@ -21,8 +22,7 @@ def sort_operations():
     """
     :return: отсортированный список последних 5 операций
     """
-    file_json = Path.home() / 'PycharmProjects' / 'account_transactions' / 'code_account' / 'operations.json'
-    operations = unpacking_json(file_json)
+    operations = unpacking_json()
     operations_list = [operation for operation in operations if operation.get('state') == 'EXECUTED']
     sort_operations_list = sorted(operations_list, key=lambda x: x['date'], reverse=True)
     return sort_operations_list[:5]
